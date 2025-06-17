@@ -7,8 +7,8 @@ import lombok.Setter;
 @Entity
 @Getter
 @Setter
-@Table(name = "admin")
-public class Admin {
+@Table(name = "coordinator")
+public class Coordinator {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -19,9 +19,10 @@ public class Admin {
     @Column(unique = true,nullable = false)
     private String password;
 
+    @Column(unique = true,nullable = false)
+    private String name;
+
     @Column(nullable = false)
     private boolean login = false;
-
-    private String name;
 }
 

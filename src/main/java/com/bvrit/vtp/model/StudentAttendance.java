@@ -25,8 +25,16 @@ public class StudentAttendance {
     @Column(nullable = false)
     private boolean present = false;
 
+    @Column(nullable = false)
     private LocalDate date;
 
+    @Column(nullable = false)
     private LocalTime time;
-
+    
+    // Define proper relationship with Schedule using bigint
+    @ManyToOne
+    @JoinColumn(name = "schedule_id")
+    private Schedule schedule;
+    
+    // No need for separate scheduleId field as it's handled by the relationship
 }
